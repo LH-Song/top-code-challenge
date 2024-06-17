@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  h2 {
+    /* @apply m-0 flex-shrink-0 px-[0.3em] text-cyan-600; */
+  }
+
+  .slogan {
+    @apply  m-0 flex h-[80vh] w-[200vw] flex-shrink-0 items-center justify-center bg-cover bg-center px-[0.3em] text-[10vw] lg:h-[100vh] lg:w-[100vw] lg:text-[4vw];
+  }
+}
