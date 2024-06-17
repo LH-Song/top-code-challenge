@@ -19,7 +19,7 @@ const DeductionsInput = () => {
         placeholder="Deductions"
         value={deductions}
         onChange={(e) => setDeductions(e.target.value)}
-        className="mb-4"
+        className="mb-4 w-[12rem]"
       />
       {incomeType === 'contractor' && (
         <Input
@@ -27,7 +27,7 @@ const DeductionsInput = () => {
           placeholder="Business expenses"
           value={businessExpenses}
           onChange={(e) => setBusinessExpenses(e.target.value)}
-          className="mb-4"
+          className="mb-4 w-[12rem]"
         />
       )}
     </>

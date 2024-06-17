@@ -15,7 +15,7 @@ const PayCycleSelect = () => {
 
   return (
     <Select defaultValue="Yearly" onValueChange={(value) => setPayCycle(value)}>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[12rem]">
         <SelectValue placeholder="Pay Cycle" />
       </SelectTrigger>
       <SelectContent>
