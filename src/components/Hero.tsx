@@ -2,7 +2,7 @@
 
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
-import { heroVideo, smallHeroVideo } from '@/lib/utils'
+import { heroVideo, smallHeroVideo } from '@/lib/utils/utils'
 import { useEffect, useState } from 'react'
 
 const Hero = () => {
@@ -60,7 +60,7 @@ const Hero = () => {
         id="cta"
         className="flex translate-y-20 flex-col items-center opacity-0"
       >
-        <p className="text-xl font-normal text-white">Scroll down</p>
+        <p className="text-xl font-normal text-white animate-bounce">Scroll down</p>
       </div>
     </section>
   )
