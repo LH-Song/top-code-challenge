@@ -13,13 +13,13 @@ const DeductionsInput = () => {
   const [businessExpenses, setBusinessExpenses] = useAtom(businessExpensesAtom)
 
   return (
-    <div className='lg:flex gap-12'>
+    <div className="flex flex-col gap-6 lg:gap-12 lg:flex-row">
       <Input
         type="number"
         placeholder="Deductions"
         value={deductions}
         onChange={(e) => setDeductions(e.target.value)}
-        className="mb-4 w-[12rem]"
+        className="lg:w-[12rem]"
       />
       {incomeType === 'contractor' && (
         <Input
@@ -27,7 +27,7 @@ const DeductionsInput = () => {
           placeholder="Business expenses"
           value={businessExpenses}
           onChange={(e) => setBusinessExpenses(e.target.value)}
-          className="mb-4 w-[12rem]"
+          className="lg:w-[12rem]"
         />
       )}
     </div>

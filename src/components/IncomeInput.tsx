@@ -14,7 +14,7 @@ const IncomeInput = () => {
       onChange={(e) =>
         setIncome(e.target.value !== '' ? Number(e.target.value) : '')
       }
-      className="w-[12rem]"
+      className="lg:w-[12rem]"
     />
   )
 }

@@ -1,10 +1,9 @@
 'use client'
 
-import React, { useRef } from 'react'
-import IncomeInput from '@/components/IncomeInput'
-import PayCycleSelect from '@/components/PayCycleSelect'
-import IncomeTypeRadioGroup from '@/components/IncomeTypeRadioGroup'
 import DeductionsInput from '@/components/DeductionsInput'
+import IncomeInput from '@/components/IncomeInput'
+import IncomeTypeRadioGroup from '@/components/IncomeTypeRadioGroup'
+import PayCycleSelect from '@/components/PayCycleSelect'
 import ResultDisplay from '@/components/ResultDisplay'
 import ShareResult from '@/components/ShareResult'
 import {
@@ -15,13 +14,14 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { Separator } from '@/components/ui/separator'
+import { useRef } from 'react'
+import ResultCompare from './ResultCompare'
 
 const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
   const resultRef = useRef<HTMLDivElement>(null)
 
   return (
-    <div className="w-[80vw] lg:h-[40vh]">
+    <>
       <Card ref={resultRef}>
         <CardHeader>
           <CardTitle>Income</CardTitle>
@@ -31,40 +31,37 @@ const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
           </CardDescription>
         </CardHeader>
 
-        <div className="gap-14 lg:flex">
-          <div className="">
-            <div className="lg:flex">
-              <CardContent>
-                <IncomeInput />
-              </CardContent>
-              <CardContent>
-                <PayCycleSelect />
-              </CardContent>
-            </div>
+        <div>
+          <div className="lg:flex">
             <CardContent>
-              <IncomeTypeRadioGroup />
+              <IncomeInput />
             </CardContent>
             <CardContent>
-              <DeductionsInput />
+              <PayCycleSelect />
             </CardContent>
           </div>
-          <Separator orientation="vertical" className="h-auto" />
+          <CardContent>
+            <IncomeTypeRadioGroup />
+          </CardContent>
+          <CardContent>
+            <DeductionsInput />
+          </CardContent>
+        </div>
 
-          <div className="flex flex-col gap-6">
-            <div>
-              <ResultDisplay />
-            </div>
-            <ShareResult resultRef={resultRef} shareUrl={shareUrl} />
-          </div>
-          <Separator orientation="vertical" className="w-10vw h-auto" />
-          <div className="flex flex-col gap-6">
+        <div className="flex w-full flex-col gap-6">
+          <div>
             <ResultDisplay />
           </div>
+          <ResultCompare />
+        </div>
+
+        <div className="flex w-full flex-col justify-end gap-6 lg:flex-row">
+          <ShareResult resultRef={resultRef} shareUrl={shareUrl} />
         </div>
 
         <CardFooter></CardFooter>
       </Card>
-    </div>
+    </>
   )
 }
 

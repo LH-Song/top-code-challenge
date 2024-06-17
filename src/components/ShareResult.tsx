@@ -22,10 +22,10 @@ const ShareResult = ({
   }
 
   return (
-    <div className="mx-4 mt-4 gap-8 lg:flex lg:flex-col space-y-6 lg:space-y-0">
+    <div className="mx-4 mt-4 gap-8 space-y-6 lg:flex lg:flex-col lg:space-y-0">
       <Button
         onClick={handleScreenshot}
-        className="w-[12rem] bg-white text-black hover:bg-black hover:text-white justify-start"
+        className="w-[12rem] justify-start bg-white text-black hover:bg-black hover:text-white"
       >
         Download Snapshot
       </Button>
@@ -35,10 +35,10 @@ const ShareResult = ({
         title="Check out my tax calculation result!"
         hashtags={['TaxCalculator']}
       >
-        <Button className="flex w-[12rem] items-center justify-start gap-4 bg-white text-black hover:bg-black hover:text-white">
+        <div className="flex w-[12rem] h-[40px] items-center justify-start gap-4 rounded-md bg-white text-black hover:bg-black hover:text-white px-4 py-2">
           <TwitterIcon size={32} round />
           <p>Share on X</p>
-        </Button>
+        </div>
       </TwitterShareButton>
     </div>
   )
