@@ -30,6 +30,7 @@ const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
             summary below.
           </CardDescription>
         </CardHeader>
+
         <div className="gap-14 lg:flex">
           <div className="">
             <div className="lg:flex">
