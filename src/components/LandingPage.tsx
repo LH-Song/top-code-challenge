@@ -1,33 +1,33 @@
-"use client";
+'use client'
 
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import React, { useRef } from "react";
-import Hero from "./Hero";
-import Link from "next/link";
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import React, { useRef } from 'react'
+import Hero from './Hero'
+import Link from 'next/link'
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
 const LandingPage: React.FC = () => {
-  const racesRef = useRef<HTMLDivElement | null>(null);
-  const racesWrapperRef = useRef<HTMLDivElement | null>(null);
+  const racesRef = useRef<HTMLDivElement | null>(null)
+  const racesWrapperRef = useRef<HTMLDivElement | null>(null)
 
   useGSAP(() => {
-    const races = racesRef.current!;
-    const racesWrapper = racesWrapperRef.current!;
-    const panels = gsap.utils.toArray(".races .slogan");
+    const races = racesRef.current!
+    const racesWrapper = racesWrapperRef.current!
+    const panels = gsap.utils.toArray('.races .slogan')
 
     const tween = gsap.to(races, {
       x: -(races.scrollWidth - window.innerWidth),
       duration: 3,
-      ease: "none",
-    });
+      ease: 'none',
+    })
 
     ScrollTrigger.create({
       trigger: racesWrapper,
-      start: "top top",
-      end: () => "+=" + (races.offsetWidth - innerWidth),
+      start: 'top top',
+      end: () => '+=' + (races.offsetWidth - innerWidth),
 
       pin: true,
       animation: tween,
@@ -39,8 +39,8 @@ const LandingPage: React.FC = () => {
         inertia: false,
         duration: { min: 0.1, max: 0.1 },
       },
-    });
-  }, []);
+    })
+  }, [])
 
   return (
     <div className="bg-black">
@@ -59,10 +59,10 @@ const LandingPage: React.FC = () => {
         </div>
       </div>
       <div className="flex h-screen items-center justify-center text-9xl text-white">
-        <Link href={"/calculator"}>Try now</Link>
+        <Link href={'/calculator'}>Try now</Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LandingPage;
+export default LandingPage
