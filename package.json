@@ -19,7 +19,6 @@
     "clsx": "^2.1.1",
     "gsap": "^3.12.5",
     "html2canvas": "^1.4.1",
-    "jotai": "^2.8.3",
     "lucide-react": "^0.395.0",
     "next": "14.2.4",
     "next-share": "^0.27.0",
@@ -40,5 +39,8 @@
     "prettier-plugin-tailwindcss": "^0.6.4",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "peerDependencies": {
+    "jotai": "^2.8.3"
   }
 }

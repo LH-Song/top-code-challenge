@@ -6,7 +6,7 @@ import { heroVideo, smallHeroVideo } from '@/lib/utils'
 import { useEffect, useState } from 'react'
 
 const Hero = () => {
-  const [videoSrc, setVideoSrc] = useState(heroVideo)
+  const [videoSrc, setVideoSrc] = useState('')
 
   const handleVideoSrcSet = () => {
     if (window.innerWidth < 760) {
@@ -25,11 +25,12 @@ const Hero = () => {
   }, [])
 
   useGSAP(() => {
-    gsap.to('#hero', { opacity: 1, delay: 4 })
+    gsap.to('#hero', { opacity: 1, delay: 2.8, duration: 2 })
     gsap.to('#cta', {
       opacity: 1,
       y: -150,
-      delay: 4,
+      delay: 2.8,
+      duration: 1.5,
     })
   }, [])
 
@@ -44,7 +45,7 @@ const Hero = () => {
         </p>
         <div className="">
           <video
-            className="pointer-events-none h-screen w-screen object-cover"
+            className="pointer-events-none h-screen object-cover"
             autoPlay
             muted
             playsInline={true}
@@ -59,7 +60,9 @@ const Hero = () => {
         id="cta"
         className="flex translate-y-20 flex-col items-center opacity-0"
       >
-        <p className="text-xl font-normal text-white">Scroll down</p>
+        <p className="animate-bounce text-xl font-normal text-white">
+          Scroll down
+        </p>
       </div>
     </section>
   )
