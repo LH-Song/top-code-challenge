@@ -17,6 +17,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "gsap": "^3.12.5",
+    "jotai": "^2.8.3",
     "lucide-react": "^0.395.0",
     "next": "14.2.4",
     "next-videos": "^1.4.1",
