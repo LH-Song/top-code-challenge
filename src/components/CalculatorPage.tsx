@@ -15,13 +15,14 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
 
 const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
   const resultRef = useRef<HTMLDivElement>(null)
 
   return (
-    <div className="h-[40vh] w-[80vw]">
-      <Card>
+    <div className="w-[80vw] lg:h-[40vh]">
+      <Card ref={resultRef}>
         <CardHeader>
           <CardTitle>Income</CardTitle>
           <CardDescription>
@@ -29,8 +30,8 @@ const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
             summary below.
           </CardDescription>
         </CardHeader>
-        <div className='flex gap-4'>
-          <div>
+        <div className="gap-14 lg:flex">
+          <div className="">
             <div className="lg:flex">
               <CardContent>
                 <IncomeInput />
@@ -46,18 +47,21 @@ const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
               <DeductionsInput />
             </CardContent>
           </div>
+          <Separator orientation="vertical" className="h-auto" />
 
-          <div className='w-full'>
-            <div ref={resultRef}>
+          <div className="flex flex-col gap-6">
+            <div>
               <ResultDisplay />
             </div>
             <ShareResult resultRef={resultRef} shareUrl={shareUrl} />
           </div>
+          <Separator orientation="vertical" className="w-10vw h-auto" />
+          <div className="flex flex-col gap-6">
+            <ResultDisplay />
+          </div>
         </div>
 
-        <CardFooter>
-          <p>Card Footer</p>
-        </CardFooter>
+        <CardFooter></CardFooter>
       </Card>
     </div>
   )

@@ -52,9 +52,9 @@ const ResultDisplay = () => {
   ])
 
   return (
-    <div className="mt-4">
+    <div className="mx-6">
       <div>Taxable Income: {taxableIncome}</div>
-      <div>Income Tax: {tax}</div>
+      <div>Tax: {tax}</div>
     </div>
   )
 }

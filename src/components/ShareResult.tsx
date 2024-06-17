@@ -1,9 +1,6 @@
 import { Button } from '@/components/ui/button'
 import html2canvas from 'html2canvas'
-import {
-  TwitterIcon,
-  TwitterShareButton
-} from 'next-share'
+import { TwitterIcon, TwitterShareButton } from 'next-share'
 import React from 'react'
 
 const ShareResult = ({
@@ -25,18 +22,24 @@ const ShareResult = ({
   }
 
   return (
-    <div className="mt-4">
-      <Button onClick={handleScreenshot}>Download Screenshot</Button>
-      <div className="mt-2 flex space-x-2">
-    
-        <TwitterShareButton
-          url={shareUrl}
-          title="Check out my tax calculation result!"
-          hashtags={['TaxCalculator']}
-        >
+    <div className="mx-4 mt-4 gap-8 lg:flex lg:flex-col space-y-6 lg:space-y-0">
+      <Button
+        onClick={handleScreenshot}
+        className="w-[12rem] bg-white text-black hover:bg-black hover:text-white justify-start"
+      >
+        Download Snapshot
+      </Button>
+
+      <TwitterShareButton
+        url={shareUrl}
+        title="Check out my tax calculation result!"
+        hashtags={['TaxCalculator']}
+      >
+        <Button className="flex w-[12rem] items-center justify-start gap-4 bg-white text-black hover:bg-black hover:text-white">
           <TwitterIcon size={32} round />
-        </TwitterShareButton>
-      </div>
+          <p>Share on X</p>
+        </Button>
+      </TwitterShareButton>
     </div>
   )
 }

@@ -13,7 +13,7 @@ const DeductionsInput = () => {
   const [businessExpenses, setBusinessExpenses] = useAtom(businessExpensesAtom)
 
   return (
-    <>
+    <div className='lg:flex gap-12'>
       <Input
         type="number"
         placeholder="Deductions"
@@ -30,7 +30,7 @@ const DeductionsInput = () => {
           className="mb-4 w-[12rem]"
         />
       )}
-    </>
+    </div>
   )
 }
 
