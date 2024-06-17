@@ -41,7 +41,15 @@ const ResultDisplay = () => {
     setTaxableIncome(taxable)
     const taxAmount = calculateTax(taxable)
     setTax(taxAmount)
-  }, [income, payCycle, incomeType, deductions, businessExpenses])
+  }, [
+    income,
+    payCycle,
+    incomeType,
+    deductions,
+    businessExpenses,
+    setTaxableIncome,
+    setTax,
+  ])
 
   return (
     <div className="mt-4">
