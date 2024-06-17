@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, Suspense, useEffect, useState } from 'react'
 import { useSearchParams, usePathname } from 'next/navigation'
 import IncomeInput from '@/components/IncomeInput'
 import PayCycleSelect from '@/components/PayCycleSelect'
@@ -96,4 +96,10 @@ const CalculatorPage = () => {
   )
 }
 
-export default CalculatorPage
+const CalculatorPageWrapper = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <CalculatorPage />
+  </Suspense>
+)
+
+export default CalculatorPageWrapper
