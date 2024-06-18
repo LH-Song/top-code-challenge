@@ -1,0 +1,404 @@
+{
+  "incomeData": [
+    {
+      "percentile": 1,
+      "income": 5148
+    },
+    {
+      "percentile": 2,
+      "income": 10348
+    },
+    {
+      "percentile": 3,
+      "income": 15548
+    },
+    {
+      "percentile": 4,
+      "income": 20748
+    },
+    {
+      "percentile": 5,
+      "income": 25948
+    },
+    {
+      "percentile": 6,
+      "income": 31148
+    },
+    {
+      "percentile": 7,
+      "income": 36348
+    },
+    {
+      "percentile": 8,
+      "income": 41548
+    },
+    {
+      "percentile": 9,
+      "income": 46748
+    },
+    {
+      "percentile": 10,
+      "income": 51948
+    },
+    {
+      "percentile": 11,
+      "income": 57148
+    },
+    {
+      "percentile": 12,
+      "income": 62348
+    },
+    {
+      "percentile": 13,
+      "income": 67548
+    },
+    {
+      "percentile": 14,
+      "income": 72748
+    },
+    {
+      "percentile": 15,
+      "income": 77948
+    },
+    {
+      "percentile": 16,
+      "income": 83148
+    },
+    {
+      "percentile": 17,
+      "income": 88348
+    },
+    {
+      "percentile": 18,
+      "income": 93548
+    },
+    {
+      "percentile": 19,
+      "income": 98748
+    },
+    {
+      "percentile": 20,
+      "income": 103948
+    },
+    {
+      "percentile": 21,
+      "income": 109148
+    },
+    {
+      "percentile": 22,
+      "income": 114348
+    },
+    {
+      "percentile": 23,
+      "income": 119548
+    },
+    {
+      "percentile": 24,
+      "income": 124748
+    },
+    {
+      "percentile": 25,
+      "income": 129948
+    },
+    {
+      "percentile": 26,
+      "income": 135148
+    },
+    {
+      "percentile": 27,
+      "income": 140348
+    },
+    {
+      "percentile": 28,
+      "income": 145548
+    },
+    {
+      "percentile": 29,
+      "income": 150748
+    },
+    {
+      "percentile": 30,
+      "income": 155948
+    },
+    {
+      "percentile": 31,
+      "income": 161148
+    },
+    {
+      "percentile": 32,
+      "income": 166348
+    },
+    {
+      "percentile": 33,
+      "income": 171548
+    },
+    {
+      "percentile": 34,
+      "income": 176748
+    },
+    {
+      "percentile": 35,
+      "income": 181948
+    },
+    {
+      "percentile": 36,
+      "income": 187148
+    },
+    {
+      "percentile": 37,
+      "income": 192348
+    },
+    {
+      "percentile": 38,
+      "income": 197548
+    },
+    {
+      "percentile": 39,
+      "income": 202748
+    },
+    {
+      "percentile": 40,
+      "income": 207948
+    },
+    {
+      "percentile": 41,
+      "income": 213148
+    },
+    {
+      "percentile": 42,
+      "income": 218348
+    },
+    {
+      "percentile": 43,
+      "income": 223548
+    },
+    {
+      "percentile": 44,
+      "income": 228748
+    },
+    {
+      "percentile": 45,
+      "income": 233948
+    },
+    {
+      "percentile": 46,
+      "income": 239148
+    },
+    {
+      "percentile": 47,
+      "income": 244348
+    },
+    {
+      "percentile": 48,
+      "income": 249548
+    },
+    {
+      "percentile": 49,
+      "income": 254748
+    },
+    {
+      "percentile": 50,
+      "income": 259948
+    },
+    {
+      "percentile": 51,
+      "income": 265148
+    },
+    {
+      "percentile": 52,
+      "income": 270348
+    },
+    {
+      "percentile": 53,
+      "income": 275548
+    },
+    {
+      "percentile": 54,
+      "income": 280748
+    },
+    {
+      "percentile": 55,
+      "income": 285948
+    },
+    {
+      "percentile": 56,
+      "income": 291148
+    },
+    {
+      "percentile": 57,
+      "income": 296348
+    },
+    {
+      "percentile": 58,
+      "income": 301548
+    },
+    {
+      "percentile": 59,
+      "income": 306748
+    },
+    {
+      "percentile": 60,
+      "income": 311948
+    },
+    {
+      "percentile": 61,
+      "income": 317148
+    },
+    {
+      "percentile": 62,
+      "income": 322348
+    },
+    {
+      "percentile": 63,
+      "income": 327548
+    },
+    {
+      "percentile": 64,
+      "income": 332748
+    },
+    {
+      "percentile": 65,
+      "income": 337948
+    },
+    {
+      "percentile": 66,
+      "income": 343148
+    },
+    {
+      "percentile": 67,
+      "income": 348348
+    },
+    {
+      "percentile": 68,
+      "income": 353548
+    },
+    {
+      "percentile": 69,
+      "income": 358748
+    },
+    {
+      "percentile": 70,
+      "income": 363948
+    },
+    {
+      "percentile": 71,
+      "income": 369148
+    },
+    {
+      "percentile": 72,
+      "income": 374348
+    },
+    {
+      "percentile": 73,
+      "income": 379548
+    },
+    {
+      "percentile": 74,
+      "income": 384748
+    },
+    {
+      "percentile": 75,
+      "income": 389948
+    },
+    {
+      "percentile": 76,
+      "income": 395148
+    },
+    {
+      "percentile": 77,
+      "income": 400348
+    },
+    {
+      "percentile": 78,
+      "income": 405548
+    },
+    {
+      "percentile": 79,
+      "income": 410748
+    },
+    {
+      "percentile": 80,
+      "income": 415948
+    },
+    {
+      "percentile": 81,
+      "income": 421148
+    },
+    {
+      "percentile": 82,
+      "income": 426348
+    },
+    {
+      "percentile": 83,
+      "income": 431548
+    },
+    {
+      "percentile": 84,
+      "income": 436748
+    },
+    {
+      "percentile": 85,
+      "income": 441948
+    },
+    {
+      "percentile": 86,
+      "income": 447148
+    },
+    {
+      "percentile": 87,
+      "income": 452348
+    },
+    {
+      "percentile": 88,
+      "income": 457548
+    },
+    {
+      "percentile": 89,
+      "income": 462748
+    },
+    {
+      "percentile": 90,
+      "income": 467948
+    },
+    {
+      "percentile": 91,
+      "income": 473148
+    },
+    {
+      "percentile": 92,
+      "income": 478348
+    },
+    {
+      "percentile": 93,
+      "income": 483548
+    },
+    {
+      "percentile": 94,
+      "income": 488748
+    },
+    {
+      "percentile": 95,
+      "income": 493948
+    },
+    {
+      "percentile": 96,
+      "income": 499148
+    },
+    {
+      "percentile": 97,
+      "income": 504348
+    },
+    {
+      "percentile": 98,
+      "income": 509548
+    },
+    {
+      "percentile": 99,
+      "income": 514748
+    },
+    {
+      "percentile": 100,
+      "income": 519948
+    }
+  ]
+}

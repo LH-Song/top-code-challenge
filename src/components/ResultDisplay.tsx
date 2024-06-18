@@ -52,10 +52,13 @@ const ResultDisplay = () => {
     setTax,
   ])
 
+  const afterTaxIncome = taxableIncome - tax
+
   return (
     <div className="mx-6">
-      <div>Taxable Income: {formatCurrency(taxableIncome)}</div>
-      <div>Tax: {formatCurrency(tax)}</div>
+      <div>Taxable income: AUD {formatCurrency(taxableIncome)}</div>
+      <div>Tax: AUD {formatCurrency(tax)}</div>
+      <div>After tax income: AUD {formatCurrency(afterTaxIncome)}</div>
     </div>
   )
 }

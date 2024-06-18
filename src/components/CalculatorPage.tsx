@@ -14,15 +14,15 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { useRef } from 'react'
-import ResultCompare from './ResultCompare'
-import Link from 'next/link'
-import { SignInButton, SignOutButton } from './buttons'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
+import Link from 'next/link'
+import { useRef } from 'react'
+import { SignInButton, SignOutButton } from './buttons'
+import ResultCompare from './ResultCompare'
 import { Button } from './ui/button'
 
 const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
