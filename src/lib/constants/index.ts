@@ -59,7 +59,7 @@ export const incomeTypes = [
 ]
 
 export const slogans1 = [
-  'Need Tax Help ?',
+  'Tax Help ?',
   'TaX rEtUrNs ArE sO cOnFuSiNg',
   'WhY iS tAx FiLiNg So CoMpLiCaTeD?',
   'CaLcUlAtInG TaXeS Is SuCh A ChOrE',
