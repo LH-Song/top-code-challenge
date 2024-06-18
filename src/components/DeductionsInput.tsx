@@ -33,7 +33,7 @@ const DeductionsInput = () => {
   }, [businessExpenses])
 
   return (
-    <div className="flex flex-col gap-6 lg:flex-row lg:gap-12">
+    <div className="flex flex-col gap-6 lg:flex-row lg:gap-12 justify-between">
       <Input
         type="text"
         placeholder="Deductions"

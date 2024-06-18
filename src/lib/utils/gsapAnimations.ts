@@ -20,7 +20,7 @@ export const animateHeading = (
       start: 'top top',
       end: () => '+=' + (trigger.scrollWidth - window.innerWidth),
       scrub: true,
-      markers: true,
+      markers: false,
     },
   })
 }
