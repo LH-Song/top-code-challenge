@@ -20,13 +20,50 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover'
 import Link from 'next/link'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { SignInButton, SignOutButton } from './buttons'
 import ResultCompare from './ResultCompare'
 import { Button } from './ui/button'
+import { useAtom } from 'jotai'
+import { afterTaxIncomeAtom } from '@/lib/store'
+import { IncomeRecord } from '@/types/incomeRecord'
+import { useSession } from 'next-auth/react'
+import MyIncomeRecords from './MyIncomeRecords'
+
 
 const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
   const resultRef = useRef<HTMLDivElement>(null)
+  const [afterTaxIncome] = useAtom(afterTaxIncomeAtom)
+  const [records, setRecords] = useState<IncomeRecord[]>([])
+  const { data: session } = useSession()
+  
+  const handleSave = async () => {
+    if (!session) {
+      console.error('User is not authenticated')
+      return
+    }
+    const response = await fetch('/api/save', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ afterTaxIncome: afterTaxIncome.toString() }),
+    })
+  
+    if (!response.ok) {
+      console.error('Failed to save income record')
+    }
+  }
+
+  const fetchRecords = async () => {
+    const response = await fetch('/api/records')
+    if (response.ok) {
+      const data = await response.json()
+      setRecords(data.records)
+    } else {
+      console.error('Failed to fetch income records')
+    }
+  }
 
   return (
     <>
@@ -40,7 +77,7 @@ const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
         </CardHeader>
 
         <div>
-          <div className="lg:flex">
+          <div className="lg:flex justify-between">
             <CardContent>
               <IncomeInput />
             </CardContent>
@@ -57,8 +94,9 @@ const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
         </div>
 
         <div className="flex w-full flex-col gap-6">
-          <div>
+          <div className='lg:flex-row flex flex-col justify-between gap-4'>
             <ResultDisplay />
+            <MyIncomeRecords />
           </div>
           <ResultCompare />
         </div>
@@ -95,10 +133,11 @@ const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
                 className="flex w-full flex-col justify-between gap-2 rounded-2xl"
               >
                 <div className="flex w-full justify-between gap-2">
-                  <Button variant="outline">save</Button>
+                  <Button variant="outline" onClick={handleSave}>
+                    save
+                  </Button>
                   <SignOutButton />
                 </div>
-                <Button variant="outline">My Income Records</Button>
               </PopoverContent>
             </Popover>
           </div>

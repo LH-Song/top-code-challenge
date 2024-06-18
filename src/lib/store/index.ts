@@ -8,3 +8,6 @@ export const businessExpensesAtom = atom<number>(0)
 export const taxableIncomeAtom = atom<number>(0)
 export const taxAtom = atom<number>(0)
 export const percentileAtom = atom<number>(0)
+export const afterTaxIncomeAtom = atom(
+  (get) => get(taxableIncomeAtom) - get(taxAtom),
+)
