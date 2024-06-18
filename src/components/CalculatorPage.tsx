@@ -54,16 +54,6 @@ const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
     }
   }
 
-  const fetchRecords = async () => {
-    const response = await fetch('/api/records')
-    if (response.ok) {
-      const data = await response.json()
-      setRecords(data.records)
-    } else {
-      console.error('Failed to fetch income records')
-    }
-  }
-
   return (
     <>
       <Card ref={resultRef} className="text-sm">
