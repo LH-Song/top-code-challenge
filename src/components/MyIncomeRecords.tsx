@@ -15,9 +15,17 @@ const MyIncomeRecords = () => {
   const fetchRecords = async () => {
     try {
       const response = await fetch('/api/records')
+      if (response.status === 401) {
+        alert('Please log in to view the records')
+        return
+      }
       if (response.ok) {
         const data = await response.json()
-        setRecords(data)
+        if (data.length === 0) {
+          alert('Please add your first record')
+        } else {
+          setRecords(data)
+        }
       } else {
         console.error('Failed to fetch income records')
       }
