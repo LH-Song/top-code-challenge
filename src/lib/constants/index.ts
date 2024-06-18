@@ -57,3 +57,27 @@ export const incomeTypes = [
     label: 'Contractor',
   },
 ]
+
+export const slogans1 = [
+  'Need Tax Help ?',
+  'TaX rEtUrNs ArE sO cOnFuSiNg',
+  'WhY iS tAx FiLiNg So CoMpLiCaTeD?',
+  'CaLcUlAtInG TaXeS Is SuCh A ChOrE',
+  'TaX PeNaLtIeS ArE ScArY',
+]
+
+export const slogans2 = [
+  'I WiSh TaXeS WeRe SiMpLeR',
+  'StReSsEd AbOuT tAx bIlL?',
+  'I WiSh TaXeS WeRe SiMpLeR',
+  'I’M CoNfUsEd By AlL ThE TaX JaRgOn',
+  'DeAlInG WiTh ThE IrS Is InTiMiDaTiNg',
+]
+
+export const slogans3 = [
+  'I’M StReSsEd AbOuT My TaX BiLl',
+  'KeEpInG TrAcK Of ReCeIpTs FoR TaXeS Is A PaIn',
+  'ThE ThOuGhT Of OwInG TaXeS GiVeS Me AnXiEtY',
+  'I’M AlWaYs UnSuRe AbOuT WhIcH TaX FoRmS To UsE',
+  'PrEpArInG My TaX ReTuRn TaKeS FoReVeR',
+]

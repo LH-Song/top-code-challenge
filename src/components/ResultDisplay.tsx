@@ -15,6 +15,7 @@ import {
   calculateTax,
 } from '@/lib/utils/taxCalculator'
 import { payCycleFactors } from '@/lib/constants'
+import { formatCurrency } from '@/lib/utils/formatCurrency'
 
 const ResultDisplay = () => {
   const [income] = useAtom(incomeAtom)
@@ -52,9 +53,9 @@ const ResultDisplay = () => {
   ])
 
   return (
-    <div className="mt-4">
-      <div>Taxable Income: {taxableIncome}</div>
-      <div>Income Tax: {tax}</div>
+    <div className="mx-6">
+      <div>Taxable Income: {formatCurrency(taxableIncome)}</div>
+      <div>Tax: {formatCurrency(tax)}</div>
     </div>
   )
 }

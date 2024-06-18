@@ -54,5 +54,15 @@ export const useCalculateTax = (setShareUrl: (url: string) => void) => {
 
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
     setShareUrl(`${baseUrl}${pathname}?${params}`)
-  }, [income, payCycle, incomeType, deductions, businessExpenses, pathname, setTaxableIncome, setTax, setShareUrl])
+  }, [
+    income,
+    payCycle,
+    incomeType,
+    deductions,
+    businessExpenses,
+    pathname,
+    setTaxableIncome,
+    setTax,
+    setShareUrl,
+  ])
 }

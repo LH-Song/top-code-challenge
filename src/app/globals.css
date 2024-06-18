@@ -71,10 +71,10 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply overflow-x-hidden bg-background text-foreground;
   }
 
   .slogan {
-    @apply m-0 flex h-[80vh] w-[200vw] flex-shrink-0 items-center justify-center bg-cover bg-center px-[0.3em] text-[10vw] lg:h-[100vh] lg:w-[100vw] lg:text-[4vw];
+    @apply m-0 flex h-[80vh] w-[200vw] flex-shrink-0 items-center justify-center bg-cover bg-center px-[0.3em] text-[4vw] lg:h-[100vh] lg:w-[200vw] lg:text-[4vw];
   }
 }

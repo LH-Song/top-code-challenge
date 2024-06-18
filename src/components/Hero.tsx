@@ -1,8 +1,8 @@
 'use client'
 
-import gsap from 'gsap'
-import { useGSAP } from '@gsap/react'
 import { heroVideo, smallHeroVideo } from '@/lib/utils'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
 import { useEffect, useState } from 'react'
 
 const Hero = () => {
@@ -25,11 +25,11 @@ const Hero = () => {
   }, [])
 
   useGSAP(() => {
-    gsap.to('#hero', { opacity: 1, delay: 2.8, duration: 2 })
+    gsap.to('#hero', { opacity: 1, delay: 2.9, duration: 2 })
     gsap.to('#cta', {
       opacity: 1,
       y: -150,
-      delay: 2.8,
+      delay: 2.9,
       duration: 1.5,
     })
   }, [])
@@ -41,7 +41,7 @@ const Hero = () => {
           id="hero"
           className="absolute bg-opacity-0 text-center text-[16vw] font-semibold text-gray-100 opacity-0 max-md:mb-10"
         >
-          Taxify.io
+          TaXiFy.io
         </p>
         <div className="">
           <video
@@ -60,9 +60,23 @@ const Hero = () => {
         id="cta"
         className="flex translate-y-20 flex-col items-center opacity-0"
       >
-        <p className="animate-bounce text-xl font-normal text-white">
-          Scroll down
-        </p>
+        <div className="flex animate-bounce flex-col items-center text-white">
+          <p className="text-xl font-normal">scroll down</p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-6 text-white"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+            />
+          </svg>
+        </div>
       </div>
     </section>
   )
