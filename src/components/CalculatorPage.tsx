@@ -30,13 +30,12 @@ import { IncomeRecord } from '@/types/incomeRecord'
 import { useSession } from 'next-auth/react'
 import MyIncomeRecords from './MyIncomeRecords'
 
-
 const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
   const resultRef = useRef<HTMLDivElement>(null)
   const [afterTaxIncome] = useAtom(afterTaxIncomeAtom)
   const [records, setRecords] = useState<IncomeRecord[]>([])
   const { data: session } = useSession()
-  
+
   const handleSave = async () => {
     if (!session) {
       console.error('User is not authenticated')
@@ -49,7 +48,7 @@ const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
       },
       body: JSON.stringify({ afterTaxIncome: afterTaxIncome.toString() }),
     })
-  
+
     if (!response.ok) {
       console.error('Failed to save income record')
     }
@@ -77,7 +76,7 @@ const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
         </CardHeader>
 
         <div>
-          <div className="lg:flex justify-between">
+          <div className="justify-between lg:flex">
             <CardContent>
               <IncomeInput />
             </CardContent>
@@ -94,7 +93,7 @@ const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
         </div>
 
         <div className="flex w-full flex-col gap-6">
-          <div className='lg:flex-row flex flex-col justify-between gap-4'>
+          <div className="flex flex-col justify-between gap-4 lg:flex-row">
             <ResultDisplay />
             <MyIncomeRecords />
           </div>

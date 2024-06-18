@@ -1,21 +1,21 @@
-import React, { useEffect } from 'react'
-import { useAtom } from 'jotai'
+import { payCycleFactors } from '@/lib/constants'
 import {
-  incomeAtom,
-  payCycleAtom,
-  incomeTypeAtom,
-  deductionsAtom,
   businessExpensesAtom,
+  deductionsAtom,
+  incomeAtom,
+  incomeTypeAtom,
+  payCycleAtom,
   taxableIncomeAtom,
   taxAtom,
 } from '@/lib/store'
+import { formatCurrency } from '@/lib/utils/formatCurrency'
 import {
   calculateAnnualIncome,
-  calculateTaxableIncome,
   calculateTax,
+  calculateTaxableIncome,
 } from '@/lib/utils/taxCalculator'
-import { payCycleFactors } from '@/lib/constants'
-import { formatCurrency } from '@/lib/utils/formatCurrency'
+import { useAtom } from 'jotai'
+import { useEffect } from 'react'
 
 const ResultDisplay = () => {
   const [income] = useAtom(incomeAtom)
@@ -59,6 +59,14 @@ const ResultDisplay = () => {
       <div>Taxable income: AUD {formatCurrency(taxableIncome)}</div>
       <div>Tax: AUD {formatCurrency(tax)}</div>
       <div>After tax income: AUD {formatCurrency(afterTaxIncome)}</div>
+      <div className="mt-2 text-xs text-neutral-400">
+        <div>default work period is:</div>
+        <div>• 12 months</div>
+        <div>• 26 fortnights</div>
+        <div>• 52 weeks </div>
+        <div>• 260 days</div>
+        <div>• 2080 hours</div>
+      </div>
     </div>
   )
 }
