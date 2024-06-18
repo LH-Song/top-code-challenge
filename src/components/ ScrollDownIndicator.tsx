@@ -54,7 +54,7 @@ const ScrollDownIndicator: React.FC = () => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="duration-[3000] h-6 w-6"
+          className="duration-1000 h-6 w-6"
         >
           <path
             strokeLinecap="round"
