@@ -7,7 +7,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(({ className, type, ...props }, ref) => {
   return (
     <div className="flex items-center border border-input rounded-md bg-background">
-      <span className="px-3 py-2 text-sm text-muted-foreground">AUD$</span>
+      <span className="px-3 py-2 text-sm text-muted-foreground">AUD</span>
       <input
         type={type}
         className={cn(
