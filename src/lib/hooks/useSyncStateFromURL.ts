@@ -1,13 +1,13 @@
-import { useEffect } from 'react'
-import { useSearchParams } from 'next/navigation'
-import { useAtom } from 'jotai'
 import {
-  incomeAtom,
-  payCycleAtom,
-  incomeTypeAtom,
-  deductionsAtom,
   businessExpensesAtom,
+  deductionsAtom,
+  incomeAtom,
+  incomeTypeAtom,
+  payCycleAtom,
 } from '@/lib/store'
+import { useAtom } from 'jotai'
+import { useSearchParams } from 'next/navigation'
+import { useEffect } from 'react'
 
 export const useSyncStateFromURL = () => {
   const [income, setIncome] = useAtom(incomeAtom)

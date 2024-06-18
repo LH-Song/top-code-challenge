@@ -1,21 +1,21 @@
-import { useEffect } from 'react'
-import { useAtom } from 'jotai'
-import { usePathname } from 'next/navigation'
+import { payCycleFactors } from '@/lib/constants'
 import {
-  incomeAtom,
-  payCycleAtom,
-  incomeTypeAtom,
-  deductionsAtom,
   businessExpensesAtom,
+  deductionsAtom,
+  incomeAtom,
+  incomeTypeAtom,
+  payCycleAtom,
   taxableIncomeAtom,
   taxAtom,
 } from '@/lib/store'
 import {
   calculateAnnualIncome,
-  calculateTaxableIncome,
   calculateTax,
+  calculateTaxableIncome,
 } from '@/lib/utils/taxCalculator'
-import { payCycleFactors } from '@/lib/constants'
+import { useAtom } from 'jotai'
+import { usePathname } from 'next/navigation'
+import { useEffect } from 'react'
 
 export const useCalculateTax = (setShareUrl: (url: string) => void) => {
   const [income, setIncome] = useAtom(incomeAtom)

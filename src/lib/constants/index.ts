@@ -2,8 +2,8 @@ export const payCycleFactors = {
   Monthly: 12,
   Fortnightly: 26,
   Weekly: 52,
-  Daily: 260, // Assuming 5 workdays a week
-  Hourly: 2080, // Assuming 40 hours a week
+  Daily: 260,
+  Hourly: 2080,
   Yearly: 1,
 }
 

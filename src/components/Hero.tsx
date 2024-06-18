@@ -59,7 +59,7 @@ const Hero = () => {
 
       <div
         id="cta"
-        className="flex translate-y-20 flex-col items-center opacity-0 text-white"
+        className="flex translate-y-20 flex-col items-center text-white opacity-0"
       >
         <ScrollDownArrow />
       </div>
