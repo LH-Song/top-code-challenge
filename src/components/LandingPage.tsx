@@ -1,11 +1,14 @@
 'use client'
 
+import { slogans1, slogans2, slogans3 } from '@/lib/constants' // 导入标语数据
+import { animateHeading } from '@/lib/utils/gsapAnimations'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import React, { useRef, useEffect } from 'react'
-import Hero from './Hero'
 import Link from 'next/link'
+import React, { useRef } from 'react'
+import Hero from './Hero'
+import SloganGroup from './SloganGroup'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -19,28 +22,14 @@ const LandingPage: React.FC = () => {
     const h2Elements = races.querySelectorAll('h2')
 
     h2Elements.forEach((h2, index) => {
-      const speed = 1 + index * 0.4 
-
-      gsap.to(h2, {
-        x: -1.3 * window.innerWidth * speed,
-        scale: 4.5,
-        y: 200,
-        delay: 1.5,
-        scrollTrigger: {
-          fastScrollEnd: true,
-          trigger: racesWrapper,
-          start: 'top top',
-          end: () => '+=' + (races.offsetWidth - innerWidth),
-          scrub: true,
-          markers: true,
-        },
-      })
+      const speed = 1 + index * 0.4
+      animateHeading(h2 as HTMLElement, speed, racesWrapper)
     })
 
     ScrollTrigger.create({
       trigger: racesWrapper,
       start: 'top top',
-      end: () => '+=' + (races.offsetWidth - innerWidth),
+      end: () => '+=' + (races.scrollWidth - window.innerWidth),
       pin: true,
       scrub: 1,
       invalidateOnRefresh: true,
@@ -53,36 +42,19 @@ const LandingPage: React.FC = () => {
       <Hero />
       <div className="racesWrapper" ref={racesWrapperRef}>
         <div className="races flex w-fit flex-nowrap lg:h-fit" ref={racesRef}>
-          <div className="slogan flex flex-col space-y-12 bg-black text-white">
-            <h2>
-              Income Tax{' '}
-              <span className="z-50 text-amber-500">NeEd HeLp ?</span>
-            </h2>
-            <h2>Income Tax Calculator</h2>
-            <h2>Income Tax Calculator</h2>
-            <h2>Income Tax Calculator</h2>
-            <h2>Income Tax Calculator</h2>
-          </div>
-          <div className="slogan flex flex-col space-y-12 bg-black text-white">
-            <h2>Income Tax Calculator</h2>
-            <h2>Income Tax Calculator</h2>
-            <h2>Income Tax Calculator</h2>
-            <h2>Income Tax Calculator</h2>
-            <h2>Income Tax Calculator</h2>
-          </div>
-          <div className="slogan flex flex-col space-y-12 bg-black text-white">
-            <h2>Income Tax Calculator</h2>
-            <h2>Income Tax Calculator</h2>
-            <h2>Income Tax Calculator</h2>
-            <h2>Income Tax Calculator</h2>
-            <h2>Income Tax Calculator</h2>
-          </div>
+          <SloganGroup slogans={slogans1} isFirstGroup={true} />
+          <SloganGroup slogans={slogans2} />
+          <SloganGroup slogans={slogans3} />
         </div>
       </div>
-      <div className="flex-col flex  h-screen items-start justify-center text-9xl text-white">
-        <Link href={'/calculator'} className='animate-bounce'>TrY NoW</Link>
+      <div className="flex h-screen flex-col items-start justify-center text-9xl text-white">
+        <Link href={'/calculator'} className="animate-bounce">
+          TrY NoW
+        </Link>
         <h2>
-         <span className="z-50 text-amber-500 text-[24vw] lg:text-[18vw]">wE gOTcHa!</span>
+          <span className="z-50 text-[24vw] text-amber-500 lg:text-[18vw]">
+            wE gOTcHa!
+          </span>
         </h2>
       </div>
     </div>

@@ -1,15 +1,10 @@
-import {
-  payCycleFactors,
-  TAX_BRACKETS,
-} from '../constants'
+import { payCycleFactors, TAX_BRACKETS } from '../constants'
 
 export const calculateAnnualIncome = (
   income: number,
   payCycle: keyof typeof payCycleFactors,
 ): number => {
-  return (
-    income * payCycleFactors[payCycle]
-  )
+  return income * payCycleFactors[payCycle]
 }
 
 export const calculateTaxableIncome = (
@@ -18,14 +13,8 @@ export const calculateTaxableIncome = (
   deductions: number | string,
   businessExpenses: number | string,
 ): number => {
-  const deduc =
-    deductions === ''
-      ? 0
-      : Number(deductions)
-  const businessExp =
-    businessExpenses === ''
-      ? 0
-      : Number(businessExpenses)
+  const deduc = deductions === '' ? 0 : Number(deductions)
+  const businessExp = businessExpenses === '' ? 0 : Number(businessExpenses)
 
   switch (incomeType) {
     case 'full-time':
@@ -39,21 +28,11 @@ export const calculateTaxableIncome = (
   }
 }
 
-export const calculateTax = (
-  taxableIncome: number,
-): number => {
-  for (
-    let i = TAX_BRACKETS.length - 1;
-    i >= 0;
-    i--
-  ) {
-    const { limit, rate, base } =
-      TAX_BRACKETS[i]
+export const calculateTax = (taxableIncome: number): number => {
+  for (let i = TAX_BRACKETS.length - 1; i >= 0; i--) {
+    const { limit, rate, base } = TAX_BRACKETS[i]
     if (taxableIncome > limit) {
-      return (
-        base +
-        (taxableIncome - limit) * rate
-      )
+      return base + (taxableIncome - limit) * rate
     }
   }
   return 0

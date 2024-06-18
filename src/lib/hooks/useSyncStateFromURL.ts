@@ -28,7 +28,8 @@ export const useSyncStateFromURL = () => {
     if (payCycleParam) setPayCycle(payCycleParam)
     if (incomeTypeParam) setIncomeType(incomeTypeParam)
     if (deductionsParam) setDeductions(Number(deductionsParam))
-    if (businessExpensesParam) setBusinessExpenses(Number(businessExpensesParam))
+    if (businessExpensesParam)
+      setBusinessExpenses(Number(businessExpensesParam))
   }, [
     searchParams,
     setBusinessExpenses,
