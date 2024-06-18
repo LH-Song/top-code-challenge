@@ -8,8 +8,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Link from 'next/link'
 import React, { useRef } from 'react'
 import Hero from './Hero'
-import SloganGroup from './SloganGroup'
 import ScrollDownIndicator from './ScrollDownIndicator'
+import SloganGroup from './SloganGroup'
 
 gsap.registerPlugin(ScrollTrigger)
 

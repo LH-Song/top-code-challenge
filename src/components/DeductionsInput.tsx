@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import { useAtom } from 'jotai'
+import { Input } from '@/components/ui/input'
 import {
+  businessExpensesAtom,
   deductionsAtom,
   incomeTypeAtom,
-  businessExpensesAtom,
 } from '@/lib/store'
-import { Input } from '@/components/ui/input'
 import { formatCurrency } from '@/lib/utils/formatCurrency'
 import { handleCurrencyInputChange } from '@/lib/utils/handleCurrencyInputChange'
+import { useAtom } from 'jotai'
+import { useEffect, useState } from 'react'
 
 const DeductionsInput = () => {
   const [deductions, setDeductions] = useAtom(deductionsAtom)

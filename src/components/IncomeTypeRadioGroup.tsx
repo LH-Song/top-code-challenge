@@ -1,9 +1,8 @@
-import React from 'react'
-import { useAtom } from 'jotai'
-import { incomeTypeAtom } from '@/lib/store'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Label } from '@/components/ui/label'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { incomeTypes } from '@/lib/constants'
+import { incomeTypeAtom } from '@/lib/store'
+import { useAtom } from 'jotai'
 
 const IncomeTypeRadioGroup = () => {
   const [incomeType, setIncomeType] = useAtom(incomeTypeAtom)

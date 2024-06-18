@@ -1,5 +1,6 @@
 'use client'
 
+import ScrollDownArrow from '@/components/ScrollDownArrow'
 import { heroVideo, smallHeroVideo } from '@/lib/utils'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
@@ -58,25 +59,9 @@ const Hero = () => {
 
       <div
         id="cta"
-        className="flex translate-y-20 flex-col items-center opacity-0"
+        className="flex translate-y-20 flex-col items-center opacity-0 text-white"
       >
-        <div className="flex animate-bounce flex-col items-center text-white">
-          <p className="text-xl font-normal">scroll down</p>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="size-6 text-white"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
-            />
-          </svg>
-        </div>
+        <ScrollDownArrow />
       </div>
     </section>
   )
