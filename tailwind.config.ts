@@ -76,6 +76,9 @@ const config = {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
+      backgroundImage: {
+        'calculator-background': "url('/calculator-background.jpg')",
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

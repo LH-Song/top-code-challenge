@@ -41,7 +41,7 @@ const Hero = () => {
           id="hero"
           className="absolute bg-opacity-0 text-center text-[16vw] font-semibold text-gray-100 opacity-0 max-md:mb-10"
         >
-          Taxify.io
+          TaXiFy.io
         </p>
         <div className="">
           <video

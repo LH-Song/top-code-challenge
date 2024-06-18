@@ -22,7 +22,7 @@ const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
 
   return (
     <>
-      <Card ref={resultRef}>
+      <Card ref={resultRef} >
         <CardHeader>
           <CardTitle>Income</CardTitle>
           <CardDescription>

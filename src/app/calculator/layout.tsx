@@ -1,4 +1,5 @@
 'use client'
+import Banner from '@/components/Banner'
 import { ReactNode } from 'react'
 
 interface Props {
@@ -8,8 +9,11 @@ interface Props {
 const calculatorLayout = ({ children }: Props) => {
   return (
     <>
-      <div className="flex h-screen w-screen items-center justify-center overflow-hidden bg-white shadow sm:rounded-lg">
-        <div className="px-4 py-5 sm:p-6 max-w-9xl">{children}</div>
+      <div className="flex min-h-screen flex-col items-center justify-center overflow-y-scroll bg-calculator-background bg-cover bg-center shadow">
+        <div className="max-w-9xl px-4 py-5 sm:p-6">
+          <Banner />
+          {children}
+        </div>
       </div>
     </>
   )
