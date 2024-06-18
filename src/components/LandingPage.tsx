@@ -9,6 +9,7 @@ import Link from 'next/link'
 import React, { useRef } from 'react'
 import Hero from './Hero'
 import SloganGroup from './SloganGroup'
+import ScrollDownIndicator from './ ScrollDownIndicator'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -38,7 +39,10 @@ const LandingPage: React.FC = () => {
   }, [])
 
   return (
+    <>
     <div className="bg-black">
+    <ScrollDownIndicator />
+
       <Hero />
       <div className="racesWrapper" ref={racesWrapperRef}>
         <div className="races flex w-fit flex-nowrap lg:h-fit" ref={racesRef}>
@@ -58,6 +62,7 @@ const LandingPage: React.FC = () => {
         </h2>
       </div>
     </div>
+    </>
   )
 }
 
