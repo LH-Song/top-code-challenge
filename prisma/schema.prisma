@@ -53,6 +53,8 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  incomeRecords IncomeRecord[] 
+
 }
 
 model VerificationToken {
@@ -61,4 +63,12 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model IncomeRecord {
+  id           String   @id @default(cuid())
+  userId       String
+  afterTaxIncome Float
+  createdAt    DateTime @default(now())
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
