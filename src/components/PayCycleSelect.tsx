@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useAtom } from 'jotai'
 import { payCycleAtom, customPayCycleValueAtom } from '@/lib/store'
 import {
@@ -9,7 +9,6 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { payCycles } from '@/lib/constants'
-import { handlePayCycleAmountInputChange } from '@/lib/utils/handlePayCycleAmountInputChange'
 
 const PayCycleSelect = () => {
   const [payCycle, setPayCycle] = useAtom(payCycleAtom)
@@ -17,18 +16,58 @@ const PayCycleSelect = () => {
     customPayCycleValueAtom,
   )
   const [rawValue, setRawValue] = useState('')
+  const [maxValue, setMaxValue] = useState(0)
+
+  useEffect(() => {
+    setRawValue(
+      customPayCycleValue !== '' ? customPayCycleValue.toString() : '',
+    )
+  }, [customPayCycleValue])
+
+  useEffect(() => {
+    const maxValues: { [key: string]: number } = {
+      Yearly: 1,
+      Monthly: 12,
+      Fortnightly: 26,
+      Weekly: 52,
+      Daily: 260,
+      Hourly: 2080,
+    }
+
+    setMaxValue(maxValues[payCycle] || 0)
+  }, [payCycle])
 
   const handlePayCycleChange = (value: string) => {
     setPayCycle(value)
-    if (value === 'Yearly') {
-      setCustomPayCycleValue('')
+    setCustomPayCycleValue('')
+
+    const maxValues: { [key: string]: number } = {
+      Yearly: 1,
+      Monthly: 12,
+      Fortnightly: 26,
+      Weekly: 52,
+      Daily: 260,
+      Hourly: 2080,
     }
+
+    setMaxValue(maxValues[value] || 0)
+  }
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Math.min(
+      Math.max(parseInt(e.target.value, 10) || 0, 0),
+      maxValue,
+    )
+    setCustomPayCycleValue(value)
+    setRawValue(value.toString())
   }
 
   return (
     <div className="flex items-center justify-end gap-2">
-      <Select defaultValue="Yearly" onValueChange={handlePayCycleChange}>
-        <SelectTrigger className="w-full lg:w-[8rem]">
+      <Select value={payCycle} onValueChange={handlePayCycleChange}>
+        <SelectTrigger
+          className={`lg:w-[8rem] ${payCycle === '' ? 'bg-amber-500' : ''} w-full`}
+        >
           <SelectValue placeholder="Pay Cycle" />
         </SelectTrigger>
         <SelectContent>
@@ -39,21 +78,17 @@ const PayCycleSelect = () => {
           ))}
         </SelectContent>
       </Select>
-      {payCycle !== 'Yearly' && (
-        <input
-          type="number"
-          placeholder="value"
-          value={customPayCycleValue}
-          onChange={(e) =>
-            handlePayCycleAmountInputChange(
-              e,
-              setCustomPayCycleValue,
-              setRawValue,
-            )
-          }
-          className="max-w-[30%] rounded border border-gray-300 p-2"
-        />
-      )}
+
+      <input
+        type="number"
+        placeholder="Value"
+        value={rawValue}
+        max={maxValue}
+        onChange={handleInputChange}
+        className={`max-w-[30%] rounded border p-2 ${
+          rawValue ? 'border-gray-300' : 'border-amber-500'
+        }`}
+      />
     </div>
   )
 }

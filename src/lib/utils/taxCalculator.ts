@@ -6,10 +6,16 @@ export const calculateAnnualIncome = (
   customPayCycleValue?: number,
 ): number => {
   const factor =
-    customPayCycleValue !== undefined
+    customPayCycleValue !== undefined && customPayCycleValue !== 0
       ? customPayCycleValue
       : payCycleFactors[payCycle]
-  return income * factor
+
+  const adjustedCustomPayCycleValue =
+    customPayCycleValue === undefined ? 0 : customPayCycleValue
+
+  return (
+    income * (customPayCycleValue !== 0 ? adjustedCustomPayCycleValue : factor)
+  )
 }
 
 export const calculateTaxableIncome = (
@@ -32,7 +38,6 @@ export const calculateTaxableIncome = (
       return annualIncome
   }
 }
-
 export const calculateTax = (taxableIncome: number): number => {
   for (let i = TAX_BRACKETS.length - 1; i >= 0; i--) {
     const { limit, rate, base } = TAX_BRACKETS[i]

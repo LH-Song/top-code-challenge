@@ -3,18 +3,27 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { incomeTypes } from '@/lib/constants'
 import { incomeTypeAtom } from '@/lib/store'
 import { useAtom } from 'jotai'
+import { useEffect } from 'react'
 
 const IncomeTypeRadioGroup = () => {
   const [incomeType, setIncomeType] = useAtom(incomeTypeAtom)
 
+  useEffect(() => {
+    setIncomeType(incomeType)
+  }, [incomeType, setIncomeType])
+
   return (
     <RadioGroup
-      defaultValue="full-time"
+      value={incomeType}
       onValueChange={(value) => setIncomeType(value)}
     >
       {incomeTypes.map((type) => (
         <div key={type.value} className="flex items-center space-x-2">
-          <RadioGroupItem value={type.value} id={`r${type.value}`} />
+          <RadioGroupItem
+            className={`${incomeType === '' ? 'border-amber-500' : ''}`}
+            value={type.value}
+            id={`r${type.value}`}
+          />
           <Label htmlFor={`r${type.value}`}>{type.label}</Label>
         </div>
       ))}

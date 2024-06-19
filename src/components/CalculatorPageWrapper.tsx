@@ -7,7 +7,6 @@ import { useState } from 'react'
 
 const CalculatorPageWrapper = () => {
   const [shareUrl, setShareUrl] = useState('')
-
   useSyncStateFromURL()
   useCalculateTax(setShareUrl)
 
