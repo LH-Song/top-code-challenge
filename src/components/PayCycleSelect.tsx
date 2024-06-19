@@ -1,6 +1,3 @@
-import React, { useState } from 'react'
-import { useAtom } from 'jotai'
-import { payCycleAtom, customPayCycleValueAtom } from '@/lib/store'
 import {
   Select,
   SelectContent,
@@ -9,7 +6,9 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { payCycles } from '@/lib/constants'
-import { handlePayCycleAmountInputChange } from '@/lib/utils/handlePayCycleAmountInputChange'
+import { customPayCycleValueAtom, payCycleAtom } from '@/lib/store'
+import { useAtom } from 'jotai'
+import React, { useEffect, useState } from 'react'
 
 const PayCycleSelect = () => {
   const [payCycle, setPayCycle] = useAtom(payCycleAtom)
@@ -17,12 +16,37 @@ const PayCycleSelect = () => {
     customPayCycleValueAtom,
   )
   const [rawValue, setRawValue] = useState('')
+  const [maxValue, setMaxValue] = useState(0)
+
+  useEffect(() => {
+    setRawValue(
+      customPayCycleValue !== '' ? customPayCycleValue.toString() : '',
+    )
+  }, [customPayCycleValue])
 
   const handlePayCycleChange = (value: string) => {
     setPayCycle(value)
-    if (value === 'Yearly') {
-      setCustomPayCycleValue('')
+    setCustomPayCycleValue('')
+
+    const maxValues: { [key: string]: number } = {
+      Yearly: 1,
+      Monthly: 12,
+      Fortnightly: 26,
+      Weekly: 52,
+      Daily: 260,
+      Hourly: 2080,
     }
+
+    setMaxValue(maxValues[value] || 0)
+  }
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Math.min(
+      Math.max(parseInt(e.target.value, 10) || 0, 0),
+      maxValue,
+    )
+    setCustomPayCycleValue(value)
+    setRawValue(value.toString())
   }
 
   return (
@@ -42,15 +66,10 @@ const PayCycleSelect = () => {
       {payCycle !== 'Yearly' && (
         <input
           type="number"
-          placeholder="value"
-          value={customPayCycleValue}
-          onChange={(e) =>
-            handlePayCycleAmountInputChange(
-              e,
-              setCustomPayCycleValue,
-              setRawValue,
-            )
-          }
+          placeholder="Value"
+          value={rawValue}
+          max={maxValue}
+          onChange={handleInputChange}
           className="max-w-[30%] rounded border border-gray-300 p-2"
         />
       )}
