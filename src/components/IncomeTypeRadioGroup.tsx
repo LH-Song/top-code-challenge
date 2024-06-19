@@ -3,13 +3,18 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { incomeTypes } from '@/lib/constants'
 import { incomeTypeAtom } from '@/lib/store'
 import { useAtom } from 'jotai'
+import { useEffect } from 'react'
 
 const IncomeTypeRadioGroup = () => {
   const [incomeType, setIncomeType] = useAtom(incomeTypeAtom)
 
+  useEffect(() => {
+    setIncomeType(incomeType)
+  }, [incomeType, setIncomeType])
+
   return (
     <RadioGroup
-      defaultValue="full-time"
+      value={incomeType}
       onValueChange={(value) => setIncomeType(value)}
     >
       {incomeTypes.map((type) => (

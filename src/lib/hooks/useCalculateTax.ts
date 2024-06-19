@@ -1,6 +1,7 @@
 import { payCycleFactors } from '@/lib/constants'
 import {
   businessExpensesAtom,
+  customPayCycleValueAtom,
   deductionsAtom,
   incomeAtom,
   incomeTypeAtom,
@@ -20,6 +21,7 @@ import { useEffect } from 'react'
 export const useCalculateTax = (setShareUrl: (url: string) => void) => {
   const [income, setIncome] = useAtom(incomeAtom)
   const [payCycle] = useAtom(payCycleAtom)
+  const [customPayCycleValue] = useAtom(customPayCycleValueAtom)
   const [incomeType] = useAtom(incomeTypeAtom)
   const [deductions] = useAtom(deductionsAtom)
   const [businessExpenses] = useAtom(businessExpensesAtom)
@@ -33,6 +35,7 @@ export const useCalculateTax = (setShareUrl: (url: string) => void) => {
     const annualIncome = calculateAnnualIncome(
       Number(income),
       payCycle as keyof typeof payCycleFactors,
+      customPayCycleValue || undefined,
     )
     const taxable = calculateTaxableIncome(
       incomeType,
@@ -47,6 +50,7 @@ export const useCalculateTax = (setShareUrl: (url: string) => void) => {
     const params = new URLSearchParams({
       income: String(income),
       payCycle,
+      customPayCycleValue: String(customPayCycleValue),
       incomeType,
       deductions: String(deductions),
       businessExpenses: String(businessExpenses),
@@ -57,6 +61,7 @@ export const useCalculateTax = (setShareUrl: (url: string) => void) => {
   }, [
     income,
     payCycle,
+    customPayCycleValue,
     incomeType,
     deductions,
     businessExpenses,
