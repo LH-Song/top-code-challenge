@@ -37,7 +37,6 @@ export const initializeHeroAnimations = () => {
   })
 }
 
-
 export const verticalScrollTrigger = (trigger: HTMLElement) => {
   ScrollTrigger.create({
     trigger: trigger,
