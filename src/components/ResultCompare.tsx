@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react'
-import { useAtom } from 'jotai'
-import { incomeAtom, taxAtom, payCycleAtom, percentileAtom } from '@/lib/store'
 import { Progress } from '@/components/ui/progress'
-import incomeData from '@/lib/data/incomeData.json'
-import { formatCurrency } from '@/lib/utils/formatCurrency'
 import { payCycleFactors } from '@/lib/constants'
+import mockIncomeData from '@/lib/data/mockIncomeData.json'
+import { incomeAtom, payCycleAtom, percentileAtom, taxAtom } from '@/lib/store'
+import { useAtom } from 'jotai'
+import { useEffect } from 'react'
 
 const ResultCompare = () => {
   const [income] = useAtom(incomeAtom)
@@ -27,9 +26,9 @@ const ResultCompare = () => {
   }
 
   const calculatePercentile = (income: number) => {
-    for (let i = 0; i < incomeData.incomeData.length; i++) {
-      if (income < incomeData.incomeData[i].income) {
-        return incomeData.incomeData[i - 1]?.percentile || 0
+    for (let i = 0; i < mockIncomeData.mockIncomeData.length; i++) {
+      if (income < mockIncomeData.mockIncomeData[i].income) {
+        return mockIncomeData.mockIncomeData[i - 1]?.percentile || 0
       }
     }
     return 100
