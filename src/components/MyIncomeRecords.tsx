@@ -3,6 +3,8 @@ import { useShowIncomeRecords } from '@/lib/hooks/useShowIncomeRecords'
 import { formatCurrency } from '@/lib/utils/formatCurrency'
 import { formatDate } from '@/lib/utils/formatDate'
 import { Separator } from './ui/separator'
+import { Button } from './ui/button'
+import { signIn } from 'next-auth/react'
 
 const MyIncomeRecords = () => {
   const { records, isLoading, isError, isAuthenticated } =
@@ -34,7 +36,16 @@ const MyIncomeRecords = () => {
       {!isAuthenticated ? (
         <div className="mt-4">
           <div>
-            Please <span className="text-amber-500">log in </span>
+            Please
+            <Button
+              variant="ghost"
+              className="p-2 text-amber-500 h-5"
+              onClick={() => signIn()}
+            >
+              log in
+            </Button>
+            <br />
+            to review your records.
           </div>
         </div>
       ) : records && records.length > 0 ? (
