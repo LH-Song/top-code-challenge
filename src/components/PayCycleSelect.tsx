@@ -1,3 +1,6 @@
+import React, { useState } from 'react'
+import { useAtom } from 'jotai'
+import { payCycleAtom, customPayCycleValueAtom } from '@/lib/store'
 import {
   Select,
   SelectContent,
@@ -6,10 +9,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { payCycles } from '@/lib/constants'
-import { customPayCycleValueAtom, payCycleAtom } from '@/lib/store'
 import { handlePayCycleAmountInputChange } from '@/lib/utils/handlePayCycleAmountInputChange'
-import { useAtom } from 'jotai'
-import { useState } from 'react'
 
 const PayCycleSelect = () => {
   const [payCycle, setPayCycle] = useAtom(payCycleAtom)
@@ -26,7 +26,7 @@ const PayCycleSelect = () => {
   }
 
   return (
-    <div className="flex items-center justify-center gap-2">
+    <div className="flex items-center justify-end gap-2">
       <Select defaultValue="Yearly" onValueChange={handlePayCycleChange}>
         <SelectTrigger className="w-full lg:w-[8rem]">
           <SelectValue placeholder="Pay Cycle" />
@@ -51,7 +51,7 @@ const PayCycleSelect = () => {
               setRawValue,
             )
           }
-          className="w-[4vw] rounded border border-gray-300 p-2"
+          className="max-w-[30%] rounded border border-gray-300 p-2"
         />
       )}
     </div>
