@@ -1,36 +1,21 @@
 import { Input } from '@/components/ui/input'
+import useCurrencyFormatter from '@/lib/hooks/useCurrencyFormatter'
 import {
   businessExpensesAtom,
   deductionsAtom,
   incomeTypeAtom,
 } from '@/lib/store'
-import { formatCurrency } from '@/lib/utils/formatCurrency'
 import { handleCurrencyInputChange } from '@/lib/utils/handleCurrencyInputChange'
 import { useAtom } from 'jotai'
-import { useEffect, useState } from 'react'
-
-const useFormattedCurrency = (atomValue: number) => {
-  const [rawValue, setRawValue] = useState('')
-
-  useEffect(() => {
-    if (atomValue !== 0) {
-      setRawValue(formatCurrency(atomValue))
-    } else {
-      setRawValue('')
-    }
-  }, [atomValue])
-
-  return [rawValue, setRawValue] as const
-}
 
 const DeductionsInput = () => {
   const [deductions, setDeductions] = useAtom(deductionsAtom)
   const [incomeType] = useAtom(incomeTypeAtom)
   const [businessExpenses, setBusinessExpenses] = useAtom(businessExpensesAtom)
   const [deductionsRawValue, setDeductionsRawValue] =
-    useFormattedCurrency(deductions)
+    useCurrencyFormatter(deductions)
   const [businessExpensesRawValue, setBusinessExpensesRawValue] =
-    useFormattedCurrency(businessExpenses)
+    useCurrencyFormatter(businessExpenses)
 
   return (
     <div className="flex flex-col justify-between gap-6 lg:flex-row lg:gap-12">
