@@ -16,7 +16,7 @@ const MyIncomeRecords = () => {
 
   return (
     <div className="w-1/2 px-6">
-      <div className="flex items-center justify-start gap-2">
+      <div className="flex items-center justify-end gap-2">
         <IncomeIcon />
         <span>Recent records</span>
       </div>
