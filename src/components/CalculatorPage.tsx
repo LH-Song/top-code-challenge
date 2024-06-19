@@ -19,50 +19,17 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
+import useSaveIncomeRecord from '@/lib/hooks/useSaveIncomeRecord'
 import Link from 'next/link'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { SignInButton, SignOutButton } from './buttons'
+import MyIncomeRecords from './MyIncomeRecords'
 import ResultCompare from './ResultCompare'
 import { Button } from './ui/button'
-import { useAtom } from 'jotai'
-import { afterTaxIncomeAtom } from '@/lib/store'
-import { IncomeRecord } from '@/types/incomeRecord'
-import { useSession } from 'next-auth/react'
-import MyIncomeRecords from './MyIncomeRecords'
 
 const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
   const resultRef = useRef<HTMLDivElement>(null)
-  const [afterTaxIncome] = useAtom(afterTaxIncomeAtom)
-  const [records, setRecords] = useState<IncomeRecord[]>([])
-  const { data: session } = useSession()
-
-  const handleSave = async () => {
-    if (!session) {
-      console.error('User is not authenticated')
-      return
-    }
-    const response = await fetch('/api/save', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ afterTaxIncome: afterTaxIncome.toString() }),
-    })
-
-    if (!response.ok) {
-      console.error('Failed to save income record')
-    }
-  }
-
-  const fetchRecords = async () => {
-    const response = await fetch('/api/records')
-    if (response.ok) {
-      const data = await response.json()
-      setRecords(data.records)
-    } else {
-      console.error('Failed to fetch income records')
-    }
-  }
+  const { saveIncomeRecord } = useSaveIncomeRecord()
 
   return (
     <>
@@ -132,7 +99,7 @@ const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
                 className="flex w-full flex-col justify-between gap-2 rounded-2xl"
               >
                 <div className="flex w-full justify-between gap-2">
-                  <Button variant="outline" onClick={handleSave}>
+                  <Button variant="outline" onClick={saveIncomeRecord}>
                     save
                   </Button>
                   <SignOutButton />
