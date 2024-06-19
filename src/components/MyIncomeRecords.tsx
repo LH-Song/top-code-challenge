@@ -39,7 +39,7 @@ const MyIncomeRecords = () => {
             Please
             <Button
               variant="ghost"
-              className="p-2 text-amber-500 h-5"
+              className="h-5 p-2 text-amber-500"
               onClick={() => signIn()}
             >
               log in

@@ -26,7 +26,7 @@ import { SignInButton, SignOutButton } from './buttons'
 import MyIncomeRecords from './MyIncomeRecords'
 import ResultCompare from './ResultCompare'
 import { Button } from './ui/button'
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import PayCycleInfo from './PayCycleInfo'
 
 const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
   const resultRef = useRef<HTMLDivElement>(null)
@@ -52,22 +52,14 @@ const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
               <PayCycleSelect />
             </CardContent>
           </div>
-          <CardContent>
-            <div className="justify-between lg:flex">
+          <CardContent className="p-0">
+            <div className="justify-between p-0 lg:flex">
               <CardContent>
                 <IncomeTypeRadioGroup />
               </CardContent>
 
               <CardContent>
-                <div className="text-right text-xs text-neutral-400">
-                  <div className="text-amber-500">custom value above</div>
-                  <div>default work period is:</div>
-                  <div>12 months •</div>
-                  <div>26 fortnights •</div>
-                  <div>52 weeks •</div>
-                  <div>260 days •</div>
-                  <div>2080 hours •</div>
-                </div>
+                <PayCycleInfo />
               </CardContent>
             </div>
           </CardContent>

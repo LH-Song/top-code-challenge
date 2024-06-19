@@ -1,6 +1,3 @@
-import React, { useState } from 'react'
-import { useAtom } from 'jotai'
-import { payCycleAtom, customPayCycleValueAtom } from '@/lib/store'
 import {
   Select,
   SelectContent,
@@ -9,22 +6,27 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { payCycles } from '@/lib/constants'
+import { customPayCycleValueAtom, payCycleAtom } from '@/lib/store'
+import { handlePayCycleAmountInputChange } from '@/lib/utils/handlePayCycleAmountInputChange'
+import { useAtom } from 'jotai'
+import { useState } from 'react'
 
 const PayCycleSelect = () => {
   const [payCycle, setPayCycle] = useAtom(payCycleAtom)
   const [customPayCycleValue, setCustomPayCycleValue] = useAtom(
     customPayCycleValueAtom,
   )
+  const [rawValue, setRawValue] = useState('')
 
   const handlePayCycleChange = (value: string) => {
     setPayCycle(value)
     if (value === 'Yearly') {
-      setCustomPayCycleValue('') 
+      setCustomPayCycleValue('')
     }
   }
 
   return (
-    <div className='flex items-center justify-center gap-2'>
+    <div className="flex items-center justify-center gap-2">
       <Select defaultValue="Yearly" onValueChange={handlePayCycleChange}>
         <SelectTrigger className="w-full lg:w-[8rem]">
           <SelectValue placeholder="Pay Cycle" />
@@ -42,8 +44,14 @@ const PayCycleSelect = () => {
           type="number"
           placeholder="value"
           value={customPayCycleValue}
-          onChange={(e) => setCustomPayCycleValue(Number(e.target.value))}
-          className="rounded border border-gray-300 p-2 w-[4vw]"
+          onChange={(e) =>
+            handlePayCycleAmountInputChange(
+              e,
+              setCustomPayCycleValue,
+              setRawValue,
+            )
+          }
+          className="w-[4vw] rounded border border-gray-300 p-2"
         />
       )}
     </div>

@@ -59,7 +59,7 @@ const ResultDisplay = () => {
   const afterTaxIncome = taxableIncome - tax
 
   return (
-    <div className="mx-6">
+    <div className="mx-6 text-xs">
       <div>Taxable income: AUD {formatCurrency(taxableIncome)}</div>
       <div>Tax: AUD {formatCurrency(tax)}</div>
       <div>After tax income: AUD {formatCurrency(afterTaxIncome)}</div>

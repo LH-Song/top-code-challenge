@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import { useAtom } from 'jotai'
-import { incomeAtom } from '@/lib/store'
 import { Input } from '@/components/ui/input'
+import { incomeAtom } from '@/lib/store'
 import { formatCurrency } from '@/lib/utils/formatCurrency'
 import { handleCurrencyInputChange } from '@/lib/utils/handleCurrencyInputChange'
+import { useAtom } from 'jotai'
+import { useEffect, useState } from 'react'
 
 const IncomeInput = () => {
   const [income, setIncome] = useAtom(incomeAtom)

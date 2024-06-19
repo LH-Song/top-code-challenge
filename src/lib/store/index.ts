@@ -11,4 +11,4 @@ export const percentileAtom = atom<number>(0)
 export const afterTaxIncomeAtom = atom(
   (get) => get(taxableIncomeAtom) - get(taxAtom),
 )
-export const customPayCycleValueAtom = atom<number | ''>('') 
+export const customPayCycleValueAtom = atom<number | ''>('')
