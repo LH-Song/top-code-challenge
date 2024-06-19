@@ -19,7 +19,11 @@ const IncomeTypeRadioGroup = () => {
     >
       {incomeTypes.map((type) => (
         <div key={type.value} className="flex items-center space-x-2">
-          <RadioGroupItem value={type.value} id={`r${type.value}`} />
+          <RadioGroupItem
+            className={`${incomeType === '' ? 'border-amber-500' : ''}`}
+            value={type.value}
+            id={`r${type.value}`}
+          />
           <Label htmlFor={`r${type.value}`}>{type.label}</Label>
         </div>
       ))}

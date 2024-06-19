@@ -85,7 +85,9 @@ const PayCycleSelect = () => {
         value={rawValue}
         max={maxValue}
         onChange={handleInputChange}
-        className="max-w-[30%] rounded border border-gray-300 p-2"
+        className={`max-w-[30%] rounded border p-2 ${
+          rawValue ? 'border-gray-300' : 'border-amber-500'
+        }`}
       />
     </div>
   )
