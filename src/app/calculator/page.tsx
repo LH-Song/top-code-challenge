@@ -1,7 +1,10 @@
 import CalculatorPageWrapper from '@/components/CalculatorPageWrapper'
+import { Suspense } from 'react'
 
-const Page = () => {
-  return <CalculatorPageWrapper />
+export default function Page() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CalculatorPageWrapper />
+    </Suspense>
+  )
 }
-
-export default Page
