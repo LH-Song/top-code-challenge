@@ -2,38 +2,29 @@
 
 import ScrollDownArrow from '@/components/ScrollDownArrow'
 import { heroVideo, smallHeroVideo } from '@/lib/utils'
+import { initializeHeroAnimations } from '@/lib/utils/gsapAnimations'
 import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
 import { useEffect, useState } from 'react'
 
 const Hero = () => {
   const [videoSrc, setVideoSrc] = useState('')
 
-  const handleVideoSrcSet = () => {
-    if (window.innerWidth < 760) {
-      setVideoSrc(smallHeroVideo)
-    } else {
-      setVideoSrc(heroVideo)
-    }
-  }
-
   useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 759px)')
+
+    const handleVideoSrcSet = () => {
+      setVideoSrc(mediaQuery.matches ? smallHeroVideo : heroVideo)
+    }
+
     handleVideoSrcSet()
-    window.addEventListener('resize', handleVideoSrcSet)
+    mediaQuery.addEventListener('change', handleVideoSrcSet)
+
     return () => {
-      window.removeEventListener('resize', handleVideoSrcSet)
+      mediaQuery.removeEventListener('change', handleVideoSrcSet)
     }
   }, [])
 
-  useGSAP(() => {
-    gsap.to('#hero', { opacity: 1, delay: 2.9, duration: 2 })
-    gsap.to('#cta', {
-      opacity: 1,
-      y: -150,
-      delay: 2.9,
-      duration: 1.5,
-    })
-  }, [])
+  useGSAP(initializeHeroAnimations, [])
 
   return (
     <section className="nav-height relative w-full bg-black">
