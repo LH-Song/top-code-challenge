@@ -1,7 +1,7 @@
 'use client'
 
 import { slogans1, slogans2, slogans3 } from '@/lib/constants'; 
-import { animateHeading } from '@/lib/utils/gsapAnimations'
+import { animateSloganGroup } from '@/lib/utils/gsapAnimations'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -24,7 +24,7 @@ const LandingPage: React.FC = () => {
 
     h2Elements.forEach((h2, index) => {
       const speed = 1 + index * 0.4
-      animateHeading(h2 as HTMLElement, speed, racesWrapper)
+      animateSloganGroup(h2 as HTMLElement, speed, racesWrapper)
     })
 
     ScrollTrigger.create({

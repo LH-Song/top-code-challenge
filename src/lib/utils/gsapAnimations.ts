@@ -3,7 +3,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-export const animateHeading = (
+export const animateSloganGroup = (
   h2: HTMLElement,
   speed: number,
   trigger: HTMLElement,
@@ -22,5 +22,15 @@ export const animateHeading = (
       scrub: true,
       markers: false,
     },
+  })
+}
+
+export const initializeHeroAnimations = () => {
+  gsap.to('#hero', { opacity: 1, delay: 2.9, duration: 2 })
+  gsap.to('#cta', {
+    opacity: 1,
+    y: -150,
+    delay: 2.9,
+    duration: 1.5,
   })
 }
