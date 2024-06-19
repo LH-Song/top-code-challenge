@@ -26,6 +26,7 @@ import { SignInButton, SignOutButton } from './buttons'
 import MyIncomeRecords from './MyIncomeRecords'
 import ResultCompare from './ResultCompare'
 import { Button } from './ui/button'
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 
 const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
   const resultRef = useRef<HTMLDivElement>(null)
