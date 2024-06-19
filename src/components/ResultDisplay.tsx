@@ -1,6 +1,7 @@
 import { payCycleFactors } from '@/lib/constants'
 import {
   businessExpensesAtom,
+  customPayCycleValueAtom,
   deductionsAtom,
   incomeAtom,
   incomeTypeAtom,
@@ -25,6 +26,7 @@ const ResultDisplay = () => {
   const [businessExpenses] = useAtom(businessExpensesAtom)
   const [taxableIncome, setTaxableIncome] = useAtom(taxableIncomeAtom)
   const [tax, setTax] = useAtom(taxAtom)
+  const [customPayCycleValue] = useAtom(customPayCycleValueAtom)
 
   useEffect(() => {
     if (income === '') return
@@ -32,6 +34,7 @@ const ResultDisplay = () => {
     const annualIncome = calculateAnnualIncome(
       Number(income),
       payCycle as keyof typeof payCycleFactors,
+      customPayCycleValue !== '' ? Number(customPayCycleValue) : undefined,
     )
     const taxable = calculateTaxableIncome(
       incomeType,
@@ -45,6 +48,7 @@ const ResultDisplay = () => {
   }, [
     income,
     payCycle,
+    customPayCycleValue,
     incomeType,
     deductions,
     businessExpenses,
@@ -59,14 +63,6 @@ const ResultDisplay = () => {
       <div>Taxable income: AUD {formatCurrency(taxableIncome)}</div>
       <div>Tax: AUD {formatCurrency(tax)}</div>
       <div>After tax income: AUD {formatCurrency(afterTaxIncome)}</div>
-      <div className="mt-2 text-xs text-neutral-400">
-        <div>default work period is:</div>
-        <div>• 12 months</div>
-        <div>• 26 fortnights</div>
-        <div>• 52 weeks </div>
-        <div>• 260 days</div>
-        <div>• 2080 hours</div>
-      </div>
     </div>
   )
 }

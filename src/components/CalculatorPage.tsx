@@ -53,7 +53,23 @@ const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
             </CardContent>
           </div>
           <CardContent>
-            <IncomeTypeRadioGroup />
+            <div className="justify-between lg:flex">
+              <CardContent>
+                <IncomeTypeRadioGroup />
+              </CardContent>
+
+              <CardContent>
+                <div className="text-right text-xs text-neutral-400">
+                  <div className="text-amber-500">custom value above</div>
+                  <div>default work period is:</div>
+                  <div>12 months •</div>
+                  <div>26 fortnights •</div>
+                  <div>52 weeks •</div>
+                  <div>260 days •</div>
+                  <div>2080 hours •</div>
+                </div>
+              </CardContent>
+            </div>
           </CardContent>
           <CardContent>
             <DeductionsInput />
