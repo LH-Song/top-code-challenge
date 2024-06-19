@@ -26,7 +26,7 @@ import { SignInButton, SignOutButton } from './buttons'
 import MyIncomeRecords from './MyIncomeRecords'
 import ResultCompare from './ResultCompare'
 import { Button } from './ui/button'
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import PayCycleInfo from './PayCycleInfo'
 
 const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
   const resultRef = useRef<HTMLDivElement>(null)
@@ -52,8 +52,16 @@ const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
               <PayCycleSelect />
             </CardContent>
           </div>
-          <CardContent>
-            <IncomeTypeRadioGroup />
+          <CardContent className="p-0">
+            <div className="justify-between p-0 lg:flex">
+              <CardContent>
+                <IncomeTypeRadioGroup />
+              </CardContent>
+
+              <CardContent>
+                <PayCycleInfo />
+              </CardContent>
+            </div>
           </CardContent>
           <CardContent>
             <DeductionsInput />

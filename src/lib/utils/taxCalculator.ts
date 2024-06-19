@@ -3,8 +3,13 @@ import { payCycleFactors, TAX_BRACKETS } from '../constants'
 export const calculateAnnualIncome = (
   income: number,
   payCycle: keyof typeof payCycleFactors,
+  customPayCycleValue?: number,
 ): number => {
-  return income * payCycleFactors[payCycle]
+  const factor =
+    customPayCycleValue !== undefined
+      ? customPayCycleValue
+      : payCycleFactors[payCycle]
+  return income * factor
 }
 
 export const calculateTaxableIncome = (

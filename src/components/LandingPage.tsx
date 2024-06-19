@@ -1,6 +1,6 @@
 'use client'
 
-import { slogans1, slogans2, slogans3 } from '@/lib/constants' // 导入标语数据
+import { slogans1, slogans2, slogans3 } from '@/lib/constants'; 
 import { animateHeading } from '@/lib/utils/gsapAnimations'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
