@@ -1,7 +1,6 @@
 'use client'
 
-import { slogans1, slogans2, slogans3 } from '@/lib/constants'; 
-import { animateSloganGroup } from '@/lib/utils/gsapAnimations'
+import { slogans1, slogans2, slogans3 } from '@/lib/constants'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -10,32 +9,24 @@ import React, { useRef } from 'react'
 import Hero from './Hero'
 import ScrollDownIndicator from './ScrollDownIndicator'
 import SloganGroup from './SloganGroup'
+import {
+  animateSloganGroup,
+  verticalScrollTrigger,
+} from '@/lib/utils/gsapAnimations'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const LandingPage: React.FC = () => {
-  const racesRef = useRef<HTMLDivElement | null>(null)
-  const racesWrapperRef = useRef<HTMLDivElement | null>(null)
+  const panelsRef = useRef<HTMLDivElement | null>(null)
+  const panelsWrapperRef = useRef<HTMLDivElement | null>(null)
 
   useGSAP(() => {
-    const races = racesRef.current!
-    const racesWrapper = racesWrapperRef.current!
-    const h2Elements = races.querySelectorAll('h2')
+    const panels = panelsRef.current!
+    const panelsWrapper = panelsWrapperRef.current!
+    const h2Elements = panels.querySelectorAll('h2') as NodeListOf<HTMLElement>
 
-    h2Elements.forEach((h2, index) => {
-      const speed = 1 + index * 0.4
-      animateSloganGroup(h2 as HTMLElement, speed, racesWrapper)
-    })
-
-    ScrollTrigger.create({
-      trigger: racesWrapper,
-      start: 'top top',
-      end: () => '+=' + (races.scrollWidth - window.innerWidth),
-      pin: true,
-      scrub: 1,
-      invalidateOnRefresh: true,
-      markers: false,
-    })
+    animateSloganGroup(h2Elements, panelsWrapper)
+    verticalScrollTrigger(panelsWrapper)
   }, [])
 
   return (
@@ -44,8 +35,11 @@ const LandingPage: React.FC = () => {
         <ScrollDownIndicator />
 
         <Hero />
-        <div className="racesWrapper" ref={racesWrapperRef}>
-          <div className="races flex w-fit flex-nowrap lg:h-fit" ref={racesRef}>
+        <div className="panelsWrapper" ref={panelsWrapperRef}>
+          <div
+            className="panels flex w-fit flex-nowrap lg:h-fit"
+            ref={panelsRef}
+          >
             <SloganGroup slogans={slogans1} isFirstGroup={true} />
             <SloganGroup slogans={slogans2} />
             <SloganGroup slogans={slogans3} />
