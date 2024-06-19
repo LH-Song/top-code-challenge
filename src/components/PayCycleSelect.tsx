@@ -65,7 +65,9 @@ const PayCycleSelect = () => {
   return (
     <div className="flex items-center justify-end gap-2">
       <Select value={payCycle} onValueChange={handlePayCycleChange}>
-        <SelectTrigger className="w-full lg:w-[8rem]">
+        <SelectTrigger
+          className={`lg:w-[8rem] ${payCycle === '' ? 'bg-amber-500' : ''} w-full`}
+        >
           <SelectValue placeholder="Pay Cycle" />
         </SelectTrigger>
         <SelectContent>
@@ -76,16 +78,15 @@ const PayCycleSelect = () => {
           ))}
         </SelectContent>
       </Select>
-      {payCycle !== 'Yearly' && (
-        <input
-          type="number"
-          placeholder="Value"
-          value={rawValue}
-          max={maxValue}
-          onChange={handleInputChange}
-          className="max-w-[30%] rounded border border-gray-300 p-2"
-        />
-      )}
+
+      <input
+        type="number"
+        placeholder="Value"
+        value={rawValue}
+        max={maxValue}
+        onChange={handleInputChange}
+        className="max-w-[30%] rounded border border-gray-300 p-2"
+      />
     </div>
   )
 }
