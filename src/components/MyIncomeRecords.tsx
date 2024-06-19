@@ -5,13 +5,13 @@ import { formatDate } from '@/lib/utils/formatDate'
 import { Separator } from './ui/separator'
 
 const MyIncomeRecords = () => {
-  const { records, isLoading, isError } = useIncomeRecords()
+  const { records, isLoading, isError, isAuthenticated } = useIncomeRecords()
 
   if (isError) return <div>Failed to load records</div>
-  if (isLoading) return <div>Loading...</div>
+  if (isLoading) return <div className="text-center">Loading...</div>
 
   return (
-    <div className="px-6">
+    <div className="w-1/2 px-6">
       <div className="flex items-center justify-start gap-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +30,13 @@ const MyIncomeRecords = () => {
         <span>Recent records</span>
       </div>
 
-      {records && records.length > 0 ? (
+      {!isAuthenticated ? (
+        <div className="mt-4">
+          <div>
+            Please <span className="text-amber-500">log in </span>
+          </div>
+        </div>
+      ) : records && records.length > 0 ? (
         <div className="mt-4">
           <ul>
             {records.map((record, index) => (
@@ -55,7 +61,10 @@ const MyIncomeRecords = () => {
       ) : (
         <div className="mt-4">
           <p>
-            Click the save button at the bottom right to upload your records.
+            <span className="text-amber-500">NO </span> records yet. <br />
+            Calculate your income and <br />
+            hit the
+            <span className="text-amber-500"> SAVE</span> button below. <br />
           </p>
         </div>
       )}

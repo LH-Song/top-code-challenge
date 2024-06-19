@@ -5,15 +5,24 @@ interface IncomeRecord {
   createdAt: string
 }
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json())
+const fetcher = async (url: string) => {
+  const response = await fetch(url)
+  if (response.status === 401) {
+    throw new Error('Not authenticated')
+  }
+  return response.json()
+}
 
 export const useIncomeRecords = () => {
   const { data, error } = useSWR<IncomeRecord[]>('/api/records', fetcher)
 
+  const isAuthenticated = !(error && error.message === 'Not authenticated')
+
   return {
     records: data,
     isLoading: !error && !data,
-    isError: error,
+    isError: error && error.message !== 'Not authenticated',
+    isAuthenticated,
     mutateRecords: () => mutate('/api/records'),
   }
 }
