@@ -1,14 +1,15 @@
 import React from 'react'
-import { useIncomeRecords } from '@/lib/hooks/useIncomeRecords'
+import { useShowIncomeRecords } from '@/lib/hooks/useShowIncomeRecords'
 import { formatCurrency } from '@/lib/utils/formatCurrency'
 import { formatDate } from '@/lib/utils/formatDate'
 import { Separator } from './ui/separator'
 
 const MyIncomeRecords = () => {
-  const { records, isLoading, isError, isAuthenticated } = useIncomeRecords()
+  const { records, isLoading, isError, isAuthenticated } =
+    useShowIncomeRecords()
 
-  if (isError) return <div>Failed to load records</div>
-  if (isLoading) return <div className="text-center">Loading...</div>
+  if (isError) return <div className="w-1/2 px-6">Failed to load records</div>
+  if (isLoading) return <div className="w-1/2 px-6">Loading...</div>
 
   return (
     <div className="w-1/2 px-6">

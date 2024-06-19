@@ -13,7 +13,7 @@ const fetcher = async (url: string) => {
   return response.json()
 }
 
-export const useIncomeRecords = () => {
+export const useShowIncomeRecords = () => {
   const { data, error } = useSWR<IncomeRecord[]>('/api/records', fetcher)
 
   const isAuthenticated = !(error && error.message === 'Not authenticated')
