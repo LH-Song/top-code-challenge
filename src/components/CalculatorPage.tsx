@@ -51,6 +51,10 @@ const CalculatorPage = ({ shareUrl }: { shareUrl: string }) => {
 
     if (!response.ok) {
       console.error('Failed to save income record')
+    } else {
+      alert(
+        'Record successfully added. Please click " Recent  Records" to view.',
+      )
     }
   }
 
