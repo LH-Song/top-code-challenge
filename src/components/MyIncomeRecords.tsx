@@ -38,14 +38,14 @@ const MyIncomeRecords = () => {
           </div>
         </div>
       ) : records && records.length > 0 ? (
-        <div className="mt-4">
+        <div className="mt-4 text-xs">
           <ul>
             {records.map((record, index) => (
               <React.Fragment key={index}>
                 <li>
                   <div className="flex justify-between">
                     <div>after tax income:</div>
-                    <div>AUD{formatCurrency(record.afterTaxIncome)}</div>
+                    <div>{formatCurrency(record.afterTaxIncome)}</div>
                   </div>
                 </li>
                 <li>
