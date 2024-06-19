@@ -24,8 +24,7 @@ const Hero = () => {
     }
   }, [])
 
-   useGSAP(initializeHeroAnimations, [])
-
+  useGSAP(initializeHeroAnimations, [])
 
   return (
     <section className="nav-height relative w-full bg-black">
