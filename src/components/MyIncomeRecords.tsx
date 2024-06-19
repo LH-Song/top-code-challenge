@@ -22,7 +22,7 @@ const MyIncomeRecords = () => {
       </div>
 
       {!isAuthenticated ? (
-        <div className="mt-4">
+        <div className="mt-4 text-right">
           <div>
             Please
             <Button
